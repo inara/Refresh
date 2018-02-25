@@ -1,5 +1,6 @@
 package inararamji.refresh;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -16,15 +17,22 @@ public class AddItemInfo extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Intent intent;
             switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                case R.id.navigation_inventory:
+                    mTextMessage.setText(R.string.title_inventory);
+                    intent = new Intent(AddItemInfo.this, Inventory.class);
+                    startActivity(intent);
                     return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                case R.id.navigation_add_item:
+                    mTextMessage.setText(R.string.title_activity_add_item);
+                    intent = new Intent(AddItemInfo.this, AddItem.class);
+                    startActivity(intent);
                     return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+                case R.id.navigation_settings:
+                    mTextMessage.setText(R.string.title_activity_settings);
+                    intent = new Intent(AddItemInfo.this, Settings.class);
+                    startActivity(intent);
                     return true;
             }
             return false;
