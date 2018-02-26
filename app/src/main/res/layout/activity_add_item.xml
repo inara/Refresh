@@ -22,7 +22,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/button_scan" />
+                android:text="@string/button_scan"
+                android:onClick="scanItem"/>
 
             <Button
                 android:layout_width="match_parent"

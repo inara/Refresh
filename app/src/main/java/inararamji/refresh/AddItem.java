@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.zxing.client.android.CaptureActivity;
+
 public class AddItem extends AppCompatActivity {
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -47,5 +49,12 @@ public class AddItem extends AppCompatActivity {
     public void addItemInfo(View view) {
         Intent intent = new Intent(AddItem.this, AddItemInfo.class);
         startActivity(intent);
+    }
+
+    public void scanItem(View view) {
+        Intent intent = new Intent(getApplicationContext(),CaptureActivity.class);
+        intent.setAction("com.google.zxing.client.android.SCAN");
+        intent.putExtra("SAVE_HISTORY", false);
+        startActivityForResult(intent, 0);
     }
 }
